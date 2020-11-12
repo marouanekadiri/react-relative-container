@@ -2,11 +2,12 @@ import React, {
   forwardRef,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useMemo,
   useRef,
 } from "react";
+
 import { RCContextProvider } from "./RCContext";
-import { uid } from "./utils";
 
 /**
  * This function wraps the container that children will observe its size
@@ -16,9 +17,12 @@ import { uid } from "./utils";
  * a wrapped component that allows its children that have a defined breakpoint to re-render with the new dimensions from the relative container
  */
 const RelativeContainer = (Component) => {
+  // eslint-disable-next-line react/prop-types
   const WrappedComponent = forwardRef((props, ref) => {
     // TODO use ref or classname
-    const className = useMemo(() => `rc__${uid()}`, []);
+    // const rcClassName = useMemo(() => `rc__${uid()}`, []);
+    const rcElement = useRef();
+    useImperativeHandle(ref, () => rcElement.current);
 
     const listeners = useRef(new Set());
     const Observer = useRef(
@@ -30,10 +34,8 @@ const RelativeContainer = (Component) => {
     );
 
     useEffect(() => {
-      const element = document.getElementsByClassName(className)[0];
-
-      Observer.current.observe(element);
-    }, [className]);
+      Observer.current.observe(rcElement.current);
+    }, []);
 
     const addListener = useCallback((listener) => {
       listeners.current.add(listener);
@@ -43,10 +45,9 @@ const RelativeContainer = (Component) => {
       listeners.current.delete(listener);
     }, []);
 
-    const getElement = useCallback(
-      () => document.getElementsByClassName(className)[0],
-      [className]
-    );
+    const getElement = useCallback(() => {
+      return rcElement.current;
+    }, []);
 
     const context = useMemo(
       () => ({ addListener, removeListener, getElement }),
@@ -55,7 +56,7 @@ const RelativeContainer = (Component) => {
 
     return (
       <RCContextProvider value={context}>
-        <Component ref={ref} className={className} {...props} />
+        <Component ref={rcElement} {...props} />
       </RCContextProvider>
     );
   });
