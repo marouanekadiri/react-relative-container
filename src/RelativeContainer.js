@@ -19,8 +19,6 @@ import { RCContextProvider } from "./RCContext";
 const RelativeContainer = (Component) => {
   // eslint-disable-next-line react/prop-types
   const WrappedComponent = forwardRef((props, ref) => {
-    // TODO use ref or classname
-    // const rcClassName = useMemo(() => `rc__${uid()}`, []);
     const rcElement = useRef();
     useImperativeHandle(ref, () => rcElement.current);
 
