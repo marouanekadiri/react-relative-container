@@ -1,5 +1,5 @@
 import RelativeContainer from "./RelativeContainer";
-import declareBreakpoints from "./declareBreakpoints";
+import ObserveRCSizeOn from "./ObserveRCSizeOn";
 import { rcMatches, styledRCMatches } from "./query";
 
-export { RelativeContainer, declareBreakpoints, rcMatches, styledRCMatches };
+export { RelativeContainer, ObserveRCSizeOn, rcMatches, styledRCMatches };

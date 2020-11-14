@@ -44,7 +44,7 @@ const getSize = (element) => {
  * @param  {...any} breakpoints List of break points e.g. (({width}) => width > 500, ({width}) => width > 700)
  * @returns Last size change based on state of relative container against breakpoints provided
  */
-export const useRCSize = (...breakpoints) => {
+export const useRCSizeOn = (...breakpoints) => {
   const context = useRCContext();
   const [size, setSize] = useState(getSize(context.getElement()));
 
