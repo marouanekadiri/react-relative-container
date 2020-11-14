@@ -2,7 +2,7 @@
 
 Make your component responsive everywhere.
 
-This respository allows you to build responsive conponents that adapts its style and content based on the size of its container.
+This repository allows you to build responsive components that adapt its style and content based on the size of its container.
 
 ## Installation
 ```sh
