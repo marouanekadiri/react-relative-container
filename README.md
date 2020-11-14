@@ -2,6 +2,8 @@
 
 Make your component responsive everywhere.
 
+This respository allows you to build responsive conponents that adapts its style and content based on the size of its container.
+
 ## Installation
 ```sh
   npm i -s react-relative-container
@@ -153,6 +155,9 @@ const Page = () => {
 **Results**
 
 ![Styled component example](https://user-images.githubusercontent.com/15144618/99157663-40a98480-26cb-11eb-92ec-c5e7736e7a96.gif)
+
+## API Documentation
+WIP
 
 ## Contributing
 Contributions are welcomed!

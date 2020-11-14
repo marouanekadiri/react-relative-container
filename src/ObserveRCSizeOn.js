@@ -20,7 +20,8 @@ const ObserveRCSizeOn = (...breakpoints) => (Component, shouldMountAfterRC) => {
       [RC_SIZE_PROP_NAME]: size,
     };
 
-    return (shouldMountAfterRC && !isNil(size.width) && !isNil(size.height)) || !shouldMountAfterRC ? (
+    return (shouldMountAfterRC && !isNil(size.width) && !isNil(size.height)) ||
+      !shouldMountAfterRC ? (
       <Component ref={ref} {...rcProps} {...props} />
     ) : null;
   });
