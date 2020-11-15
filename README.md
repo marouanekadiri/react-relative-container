@@ -33,7 +33,7 @@ const L = ({ width }) => width < 1000 && width >= 700
 Let say this is your child component
 ```jsx
 const Child = props => {
-  return S(props.rcSize) ? 
+  return S(props.rcsize) ? 
           <div>i'm small</div> 
             : 
           <div>i'm medium or large</div>
