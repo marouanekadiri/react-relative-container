@@ -9,6 +9,9 @@ This repository allows you to build responsive components that adapt its style a
   npm i -s react-relative-container
 ```
 
+## Demo
+[See examples](https://codesandbox.io/s/react-relative-container-ymihr)
+
 ## Usage
 
 Make sure you have forwarded ref to a specific dom element that you want to observe its size change
@@ -163,6 +166,6 @@ WIP
 
 Contributions are welcomed!
 
-### Licensing
+## Licensing
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
